@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import ReactPaginate from 'react-paginate';
 import '../styles/allFood.css'
 import '../styles/pagination.css'
@@ -14,8 +14,14 @@ const AllFood = () => {
   const [pageNumber, setPageNumber] = useState(0)
 
   const searchProduct = products.filter((item) => {
-    if (searchTerm.value === "") return item
-    if (item.title.toLowerCase().includes(searchTerm.toLowerCase())) return item
+    if (searchTerm.value === "") {
+      return item;
+    }
+    if (item.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+      return item;
+    } else {
+      return console.log("not found");
+    }
   })
 
   const productPerPage = 8
